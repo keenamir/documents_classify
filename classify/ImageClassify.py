@@ -78,33 +78,3 @@ class ImageClassify:
         else:
             return None
         
-    def classify_print(self, input_name, min_cnt=None):
-        comb_acc = self.__classify(input_name)
-        if comb_acc:
-            n = comb_acc.__len__()
-            if min_cnt is not None:
-                n = min(min_cnt, comb_acc.__len__())
-                
-            for j in range(n):
-                if comb_acc[j][0] > 1:
-                    print "   ", '{:20}'.format(comb_acc[j][1]), ':', "%2.6f" % comb_acc[j][0]
-        else:
-            print "Incorrect file name or image format!"
-
-    def classify(self, input_name, min_cnt=None):
-        comb_acc = self.__classify(input_name)
-        classify_ret = []
-        if comb_acc:
-            n = comb_acc.__len__()
-            if min_cnt is not None:
-                n = min(min_cnt, comb_acc.__len__())
-            
-            for j in range(n):
-                if comb_acc[j][0] > 1:
-                    dic_cat = {"id": comb_acc[j][2], "name": str(comb_acc[j][1]), "score": "%2.6f" % comb_acc[j][0]}
-                    classify_ret.append(dic_cat)
-
-            return classify_ret
-
-        else:
-            return None

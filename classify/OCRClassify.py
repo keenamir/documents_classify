@@ -49,22 +49,7 @@ class OCRClassify:
         if ret_code != 0:
             self.errors.check_for_errors()
 
-    def image_file_to_string(self, filename):
-        """
-            Applies tesseract to filename; or, if image is incompatible and graceful_errors=True,
-            converts to compatible format and then applies tesseract.  Fetches resulting text.
-            If cleanup=True, delete scratch files after operation.
-        """
-        try:
-            self.call_tesseract(filename, self.scratch_text_name_root)
-            text_ret = self.util.retrieve_text(self.scratch_text_name_root)
-        except Tesser_General_Exception:
-            text_ret = ''
-            pass
 
-        self.util.perform_cleanup(self.scratch_image_name, self.scratch_text_name_root)
-
-        return text_ret
 
     def image_process(self, in_name, out_name):
         """
