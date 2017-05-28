@@ -1,6 +1,6 @@
 # README #
 
-This document is updated 04/27/2017
+This document is updated 05/27/2017
 
 The goal of this project is classify the images as 20 categories
 
@@ -8,8 +8,7 @@ The goal of this project is classify the images as 20 categories
 
 * Python 2.7
 * Tensorflow 0.10.0rc0
-* OpenCV 3
-* Numpy
+* OpenCV 3.2
 * libmagickwand-dev
 * wand
 * tesseract-ocr
